@@ -4,7 +4,7 @@ from typing import Any, Dict, List, Tuple
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.nlp.spec import QuerySpec, Table, Aggregation, ConditionOp
+from nlp.spec import QuerySpec, Table, Aggregation, ConditionOp
 
 
 # Какие поля можно агрегировать в каких таблицах

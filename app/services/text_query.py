@@ -1,5 +1,5 @@
-from app.nlp.llm_parser import build_spec_from_text
-from app.services.executor import answer_query_spec
+from nlp.llm_parser import build_spec_from_text
+from services.executor import answer_query_spec
 
 
 async def answer_text_query(user_text: str) -> int:

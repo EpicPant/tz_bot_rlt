@@ -12,7 +12,7 @@ from sqlalchemy.ext.asyncio import (
     create_async_engine,
 )
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
-from app.core.config import db_settings
+from core.config import db_settings
 
 
 engine = create_async_engine(

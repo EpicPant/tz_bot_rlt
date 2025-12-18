@@ -1,8 +1,8 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.base.session_maker import database_manager
-from app.nlp.spec import QuerySpec
-from app.services.sql_builder import execute_query_spec
+from base.session_maker import database_manager
+from nlp.spec import QuerySpec
+from services.sql_builder import execute_query_spec
 
 
 async def answer_query_spec(spec: QuerySpec) -> int:

@@ -33,10 +33,23 @@ class DBSettings(BaseSettings):
 class BotSettings(BaseSettings):
     BOT_TOKEN: str
 
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
+    model_config = SettingsConfigDict(
+        env_file=ENV_PATH,
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
+
+
+class LLMSettings(BaseSettings):
+    OPENAI_API_KEY: str = Field(alias="openai_api_key")
+
+    model_config = SettingsConfigDict(
+        env_file=ENV_PATH,
+        env_file_encoding="utf-8",
+        extra="ignore",
+    )
 
 
 bot_settings = BotSettings()
 db_settings = DBSettings()
+llm_settings = LLMSettings()

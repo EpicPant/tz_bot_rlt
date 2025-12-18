@@ -1,19 +1,16 @@
-# app/nlp/llm_parser.py
-
 import json
 from typing import Any
-
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage
+from core.config import llm_settings
+from nlp.prompts import SPEC_SYSTEM_PROMPT
+from nlp.spec import QuerySpec
 
-from app.nlp.prompts import SPEC_SYSTEM_PROMPT
-from app.nlp.spec import QuerySpec
 
-
-# Инициализируем LLM один раз
 llm = ChatOpenAI(
-    model="gpt-4.1-mini",  # или другой, какой захочешь
+    model="gpt-4.1-mini",
     temperature=0,
+    api_key=llm_settings.OPENAI_API_KEY,
 )
 
 

@@ -36,10 +36,13 @@ class Base(AsyncAttrs, DeclarativeBase):
 
     id: Mapped[uuid.UUID] = mapped_column(UUID, primary_key=True)
     created_at: Mapped[datetime] = mapped_column(
-        TIMESTAMP, server_default=func.now()  # pylint: disable=E1102
+        TIMESTAMP(timezone=True),
+        server_default=func.now(),
     )
     updated_at: Mapped[datetime] = mapped_column(
-        TIMESTAMP, server_default=func.now()  # pylint: disable=E1102
+        TIMESTAMP(timezone=True),
+        server_default=func.now(),
+        onupdate=func.now(),
     )
 
     def to_dict(self) -> Dict[str, Any]:

@@ -30,4 +30,13 @@ class DBSettings(BaseSettings):
         return f"postgresql+asyncpg://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@{self.POSTGRES_HOST}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
 
 
+class BotSettings(BaseSettings):
+    BOT_TOKEN: str
+
+    class Config:
+        env_file = ".env"
+        env_file_encoding = "utf-8"
+
+
+bot_settings = BotSettings()
 db_settings = DBSettings()
